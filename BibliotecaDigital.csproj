@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Contexts\Configurations\" />
+    <Folder Include="Views\Usuario\" />
   </ItemGroup>
 
 </Project>

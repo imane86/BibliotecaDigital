@@ -1,0 +1,70 @@
+﻿@using BibliotecaDigital.Core.Entities
+
+
+@{
+    ViewData["Title"] = "Books List";
+
+}
+<h1>Books List</h1>
+
+<a class="nav-link text-black" asp-area="" asp-controller="Libro" asp-action="Create">Create New Book</a>
+
+<form asp-action="Index" method="post">
+    <label>Id</label>
+    <input name="Id" class="form-control" />
+
+    <label>Titulo</label>
+    <input name="Titulo" class="form-control" />
+
+    <label>Autor</label>
+    <input name="Autor" class="form-control" />
+
+@* <label>Genre</label>
+    <input name="Genre" class="form-control" /> *@
+
+    <label>AnioPublicacion</label>
+    <input name="AnioPublicacion" class="form-control" />
+
+    <button type="submit" class="btn btn-outline-primary mt-2">Filter</button>
+
+</form>
+
+@*ocultar botones segun permisos*@
+@* @if (User.IsInRole("Administrador") || User.IsInRole("Bibliotecario"))
+{
+    <a asp-action="Create" class="btn btn-primary">Crear</a>
+}
+@if (User.IsInRole("Administrador"))
+{
+    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+} *@
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Autor</th>
+            @* <th>Genre</th> *@
+            <th>AnioPublicacion</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Titulo</td>
+                <td>@book.Autor</td>
+                @* <td>@book.Genre</td> *@
+                <td>@book.AnioPublicacion</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-primary">Edit</a>
+                    @* <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-info">Details</a> *@
+                    <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
