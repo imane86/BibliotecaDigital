@@ -10,7 +10,7 @@ namespace BibliotecaDigital.Models
 
         public Libro() {
         }
-
+         
         public Libro(int Id, String Titulo, String Autor, int AnioPublicacion) {
             this.Id = Id;
             this.Titulo = Titulo;
