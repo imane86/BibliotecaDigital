@@ -1,5 +1,5 @@
 using BibliotecaDigital.Core.Entities;
-using BibliotecaDigital.Data.Contexts.Migrations;
+using BibliotecaDigital.Data.Contexts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

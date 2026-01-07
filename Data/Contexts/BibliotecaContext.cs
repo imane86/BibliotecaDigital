@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-namespace BibliotecaDigital.Data.Contexts.Migrations
+﻿using BibliotecaDigital.Core.Entities;
+using Microsoft.EntityFrameworkCore;
+namespace BibliotecaDigital.Data.Contexts
 {
     public class BibliotecaContext : DbContext
     {
