@@ -3,10 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BibliotecaDigital.Controllers
 {
-    public class BibliotecaController : Controller
+    public class LibroController : Controller
     {
         public IActionResult Index()
         {
+
+            // Lógica para obtener la lista de libros
+
             return View();
         }
         public IActionResult Create()

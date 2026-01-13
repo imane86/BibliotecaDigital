@@ -1,4 +1,4 @@
-﻿@using BibliotecaDigital.Core.Entities
+﻿@model List<BibliotecaDigital.Core.Entities.Libro>
 
 
 @{
@@ -18,9 +18,6 @@
 
     <label>Autor</label>
     <input name="Autor" class="form-control" />
-
-@* <label>Genre</label>
-    <input name="Genre" class="form-control" /> *@
 
     <label>AnioPublicacion</label>
     <input name="AnioPublicacion" class="form-control" />
@@ -46,7 +43,6 @@
             <th>Id</th>
             <th>Titulo</th>
             <th>Autor</th>
-            @* <th>Genre</th> *@
             <th>AnioPublicacion</th>
             <th></th>
         </tr>
@@ -58,12 +54,11 @@
                 <td>@book.Id</td>
                 <td>@book.Titulo</td>
                 <td>@book.Autor</td>
-                @* <td>@book.Genre</td> *@
                 <td>@book.AnioPublicacion</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-primary">Edit</a>
+                    <a asp-controller="libro" asp-action="Edit" asp-route-id="@book.Id" class="btn btn-primary">Edit</a>
                     @* <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-info">Details</a> *@
-                    <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger">Delete</a>
+                    <a asp-controller="Libro" asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }

@@ -11,6 +11,7 @@ namespace BibliotecaDigital.Core.Entities
         public string Nombre { get; set; }
         [Required]
         public ICollection<Usuario> Usuarios { get; set; }
+     
         public Rol() { }
 
     }
