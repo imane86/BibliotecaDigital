@@ -1,16 +1,25 @@
 ﻿using BibliotecaDigital.Core.Entities;
+using BibliotecaDigital.Data.Contexts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BibliotecaDigital.Controllers
 {
     public class LibroController : Controller
     {
+        private readonly BibliotecaContext _context;
+
+        public LibroController(BibliotecaContext context)
+        {
+             _context = context;
+        }
+
         public IActionResult Index()
         {
 
             // Lógica para obtener la lista de libros
+            var model = _context.Libros.ToList();
 
-            return View();
+            return View(model);
         }
         public IActionResult Create()
         {

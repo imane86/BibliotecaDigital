@@ -1,0 +1,25 @@
+﻿@model BibliotecaDigital.Core.Entities.Rol
+
+@{
+    ViewData["Title"] = "Update Roles";
+}
+
+<h1>Update Book</h1>
+<form asp-controller="Roles" asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <label asp-for="Nombre" class="form-label"></label>
+    <input asp-for="Nombre" class="form-control" />
+    <span asp-validation-for="Nombre" class="text-danger"></span>
+
+   
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

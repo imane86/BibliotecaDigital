@@ -10,8 +10,8 @@
 <a class="nav-link text-black" asp-area="" asp-controller="Libro" asp-action="Create">Create New Book</a>
 
 <form asp-action="Index" method="post">
-    <label>Id</label>
-    <input name="Id" class="form-control" />
+   @*  <label>Id</label>
+    <input name="Id" class="form-control" /> *@
 
     <label>Titulo</label>
     <input name="Titulo" class="form-control" />
@@ -22,7 +22,7 @@
     <label>AnioPublicacion</label>
     <input name="AnioPublicacion" class="form-control" />
 
-    <button type="submit" class="btn btn-outline-primary mt-2">Filter</button>
+    <button type="submit" class="btn btn-outline-primary mt-2">Buscar</button>
 
 </form>
 
@@ -30,6 +30,7 @@
 @* @if (User.IsInRole("Administrador") || User.IsInRole("Bibliotecario"))
 {
     <a asp-action="Create" class="btn btn-primary">Crear</a>
+    <a asp-action="Update" class="btn btn-primary">Editar</a>
 }
 @if (User.IsInRole("Administrador"))
 {
@@ -40,7 +41,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
+           @*  <th>Id</th> *@
             <th>Titulo</th>
             <th>Autor</th>
             <th>AnioPublicacion</th>
@@ -51,14 +52,14 @@
         @foreach (var book in Model)
         {
             <tr>
-                <td>@book.Id</td>
+              @*   <td>@book.Id</td> *@
                 <td>@book.Titulo</td>
                 <td>@book.Autor</td>
                 <td>@book.AnioPublicacion</td>
                 <td>
                     <a asp-controller="libro" asp-action="Edit" asp-route-id="@book.Id" class="btn btn-primary">Edit</a>
                     @* <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-info">Details</a> *@
-                    <a asp-controller="Libro" asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger">Delete</a>
+                    <a asp-controller="Libro" asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }

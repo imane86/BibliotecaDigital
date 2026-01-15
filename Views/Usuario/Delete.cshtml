@@ -1,0 +1,10 @@
+﻿@model BibliotecaDigital.Core.Entities.Usuario
+
+<h3>Delete User</h3>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <p>¿Está seguro que desea eliminar al usuario <strong>@Model.NombreUsuario</strong>?</p>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

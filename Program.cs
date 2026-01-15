@@ -28,7 +28,10 @@ opt.UseSqlServer(cnnString));
 //FINI: EF Core
 
 
+//meter un servicio para hashear las contraseñas
+builder.Services.AddScoped<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
 
+/*
 //INI: NUESTRA CONFIGURACION PARA SIMULAR UNA AUTENTICACION 
 builder.Services.AddAuthentication("MiCookieAuth")
     .AddCookie("MiCookieAuth", opt =>
@@ -39,7 +42,7 @@ builder.Services.AddAuthentication("MiCookieAuth")
     });
 builder.Services.AddAuthorization();
 //FIN: NUESTRA CONFIGURACION PARA SIMULAR UNA AUTENTICACION
-
+*/
 
 
 

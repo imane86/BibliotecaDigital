@@ -92,6 +92,8 @@ namespace BibliotecaDigital.Data.Contexts.Migrations
             migrationBuilder.DropTable(
                 name: "RolUsuario");
 
+
+
             migrationBuilder.DropTable(
                 name: "Roles");
 

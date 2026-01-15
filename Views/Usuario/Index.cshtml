@@ -1,0 +1,38 @@
+﻿@* @model IEnumerable<MiCafeteria.Models.UsuarioModel> *@
+@model List<BibliotecaDigital.Core.Entities.Usuario>
+
+<h2>Usuarios</h2>
+<a href="@Url.Action("Create")">Crear nuevo usuario</a>
+<table class="table">
+    <thead>
+        <tr>
+           @*  <th>Id</th> *@
+            <th>NombreUsuario</th>
+            <th>Email</th>
+            <th>Contrasena</th>
+            <th>Rol</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+               @*  <td>@usuario.Id</td> *@
+                <td>@usuario.NombreUsuario</td>
+                <td>@usuario.Email</td>
+                <td>@usuario.PasswordHash</td>
+                <td>@usuario.Roles</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="Update" asp-route-id="@usuario.Id">Editar</a>
+
+                    <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@usuario.Id">Eliminar</a>
+                   
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,60 @@
+﻿@model List<BibliotecaDigital.Core.Entities.Rol>
+
+
+@{
+    ViewData["Title"] = "Rols List";
+
+}
+<h1>Roles List</h1>
+
+<a class="nav-link text-black" asp-area="" asp-controller="Roles" asp-action="Create">Create New Rol</a>
+
+<form asp-action="Index" method="post">
+@*     <label>Id</label>
+    <input name="Id" class="form-control" /> *@
+
+    <label>Nombre</label>
+    <input name="Nombre" class="form-control" />
+
+   
+
+    <button type="submit" class="btn btn-outline-primary mt-2">Buscar</button>
+
+</form>
+
+@*ocultar botones segun permisos*@
+@* @if (User.IsInRole("Administrador") || User.IsInRole("Bibliotecario"))
+{
+    <a asp-action="Create" class="btn btn-primary">Crear</a>
+    <a asp-action="Update" class="btn btn-primary">Editar</a>
+}
+@if (User.IsInRole("Administrador"))
+{
+    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+} *@
+
+
+<table class="table">
+    <thead>
+        <tr>
+            @* <th>Id</th> *@
+            <th>Nombre</th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rol in Model)
+        {
+            <tr>
+                @* <td>@rol.Id</td> *@
+                <td>@rol.Nombre</td>
+               
+                <td>
+                    <a asp-controller="Roles" asp-action="Update" asp-route-id="@rol.Id" class="btn btn-primary">Edit</a>
+                    @* <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-info">Details</a> *@
+                    <a asp-controller="Roles" asp-action="Delete" asp-route-id="@rol.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>

@@ -25,11 +25,11 @@ namespace BibliotecaDigital.Controllers
         /// <param name="rolSeleccionado">rolActual</param>
         private SelectList GetSelectList(int? rolSeleccionado = null)
         {
-            var roles = _context.Roles.Select(x => new SelectListItem
+            var roles = _context.Roles.Select(r => new SelectListItem
             {
                 //crea en anonimo en tiempo de ejecucion
-                Value = x.Id.ToString(),
-                Text = x.Nombre,
+                Value = r.Id.ToString(),
+                Text = r.Nombre, 
 
             }).ToList();
 
@@ -52,11 +52,13 @@ namespace BibliotecaDigital.Controllers
             return View();
         }
         [HttpPost]
+
+        //public async Task<IActionResult> create([Bind("Id, NombreUsuario, Email, PasswordHash")] Usuario usuario)
         public IActionResult Create(Usuario model)
         {
             if (ModelState.IsValid)
             {
-                // Hashear la contraseña antes de guardarla
+                // Hashear la contraseña antes de guardarla (model puede nombrarse como usuario)
                 model.PasswordHash = _passwordHasher.HashPassword(model, model.PasswordHash);
                 _context.Usuarios.Add(model);
                 _context.SaveChanges();

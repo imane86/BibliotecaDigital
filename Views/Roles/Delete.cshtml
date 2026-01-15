@@ -1,0 +1,23 @@
+﻿@using BibliotecaDigital.Core.Entities
+@*crear un producto*@
+@model Rol
+
+<h3>Eliminar Rol</h3>
+
+<p>@Model.Nombre</p>
+
+
+
+<form asp-controller="Roles" asp-action="Deleted" method="post">
+
+
+    <input type="hidden" name="Id" value="@ViewBag.Id" />
+
+    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+    <a type="button" asp-controller="Libro" asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+
+
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

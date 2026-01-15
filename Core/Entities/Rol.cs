@@ -9,9 +9,12 @@ namespace BibliotecaDigital.Core.Entities
 
         [Required]
         public string Nombre { get; set; }
+
+
+        //#region Propiedad de Navegación
         [Required]
-        public ICollection<Usuario> Usuarios { get; set; }
-     
+        public ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+
         public Rol() { }
 
     }
